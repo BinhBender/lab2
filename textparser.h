@@ -49,7 +49,7 @@ public:
 	void SetFile(std::string);
 	void PrintOriginalFile();
 	void PrintFixedFile();
-	void QueueToText();
+	void QueueToText(std::string);
 	~TextParser();
 	std::set<std::string> GetUniqueWords();
 	std::map<std::string, int> GetWordFrequency();

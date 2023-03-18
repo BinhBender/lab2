@@ -79,6 +79,13 @@ void printResults(TextParser& tp){
 	printUniqueWords(unique);
 	std::cout << std::endl;
 	printWordFrequency(tp.GetWordFrequency());
+
+	std::cout << "\nWhat do you want to name the output?\nInput: ";
+	std::string newFile;
+	std::cin >> newFile;
+	tp.QueueToText(newFile.append(".txt"));
+
+	std::cout << "saving in " << newFile << "...\n";
 	
 }
 void ProgramStart(){

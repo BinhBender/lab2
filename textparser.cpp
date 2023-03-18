@@ -96,10 +96,10 @@ void TextParser::lineblock(){
 	
 	std::cout << "Printing: " << s << "end print\n";
 }
-void TextParser::QueueToText(){
+void TextParser::QueueToText(std::string newFile){
 	std::ofstream outputFile;
 	
-	outputFile.open("output.txt", std::ofstream::out | std::ofstream::trunc);
+	outputFile.open(newFile, std::ofstream::out | std::ofstream::trunc);
 	
 	int size = words.GetSize();
 	
@@ -287,6 +287,7 @@ std::set<std::string> TextParser::GetUniqueWords(){
 void TextParser::SetFile(std::string s){
 	filename = s;
 }
+
 bool TextParser::init(){
 /*
  * Steps:
@@ -301,6 +302,8 @@ bool TextParser::init(){
  * */
 
 	//check if file is open
+	words.clear();
+	std::cout << filename << std::endl;
 	file.open(filename);
 	if(!file.is_open()){
 		std::cout << "Error, sample file cannot be found!\n";
@@ -312,7 +315,10 @@ bool TextParser::init(){
 	//wordbankBlock();
 	//lineblock();
 	wordblock();
-	QueueToText();
+
+
+	
+	file.close();
 	
 	return true;
 }

@@ -49,6 +49,7 @@ public:
 	}
 	
 	int GetSize();
+	void clear();
 protected:
 	void push_back(T);
 	void push_front(T);
@@ -64,6 +65,13 @@ protected:
 //this class will be a doubly linked list
 
 
+
+template<typename T>
+void LinkedList<T>::clear(){
+	while(head != nullptr){
+		pop_back();
+	}
+}
 /*Desc: adds a new node with its data equaling val
  * at the end of the list
  * increasing the size and 
